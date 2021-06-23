@@ -1,0 +1,26 @@
+{
+  "name": "clinic-app",
+  "version": "1.0.0",
+  "description": "This is to simulate a clinic application.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansonngg/clinic-app.git"
+  },
+  "author": "ansonngg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ansonngg/clinic-app/issues"
+  },
+  "homepage": "https://github.com/ansonngg/clinic-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "mysql": "^2.18.1"
+  }
+}
