@@ -28,6 +28,8 @@ const con2 = mysql.createConnection({
 
 // Create an account
 app.post('/createAc', (req, res) => {
+  if (!(req.body.email && req.body.password && req.body.phoneNum && req.body.address)) return res.send('400: No information can be empty');
+
   if (req.body.phoneNum.length !== 8) return res.send('400: Invalid phone number');
   
   let sql = `INSERT INTO account (email, password, phone_number, address) VALUES ('${req.body.email}', MD5('${req.body.password}'), '${req.body.phoneNum}', '${req.body.address}')`;
@@ -41,6 +43,8 @@ app.post('/createAc', (req, res) => {
 
 // Login
 app.post('/login', (req, res) => {
+  if (!(req.body.email && req.body.password)) return res.send('400: No information can be empty');
+
   let sql = `SELECT email, phone_number, address FROM account WHERE (email = '${req.body.email}' AND password = MD5('${req.body.password}'))`;
 
   con1.query(sql, function (err, result) {
@@ -57,6 +61,8 @@ app.post('/login', (req, res) => {
 
 // Create consultation record
 app.post('/createCon', (req, res) => {
+  if (!(req.body.token && req.body.clinic && req.body.dName && req.body.pName && req.body.diag && req.body.medic && req.body.conFee && req.body.date)) return res.send('400: No information can be empty');
+
   // Verify indicator
   if (req.body.token.substring(0, 7) !== 'bearer ') return res.send('401: Invalid token');
 
@@ -85,7 +91,7 @@ app.post('/createCon', (req, res) => {
   })
 })
 
-// List consultation records (post)
+// List consultation records
 app.post('/listCon', (req, res) => {
   // Verify indicator
   if (req.body.token.substring(0, 7) !== 'bearer ') return res.send({str: '401: Invalid token'});
