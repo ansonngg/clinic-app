@@ -1,6 +1,6 @@
 # clinic-app
 
-**Description**
+**Description**  
 This is to simulate a clinic application.
 
 **Tools Used**
@@ -17,3 +17,6 @@ This is to simulate a clinic application.
 
 **Feature**
 1. Registration
+2. Login with jwt token when success
+3. Create consultation record with Bearer Authentication
+4. List consultation records with Bearer Authentication
