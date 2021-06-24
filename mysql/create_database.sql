@@ -10,6 +10,7 @@ CREATE TABLE account (
 CREATE DATABASE consultation;
 USE consultation;
 CREATE TABLE record (
+	email VARCHAR(255),
     clinic VARCHAR(255),
     doctor_name VARCHAR(255),
     patient_name VARCHAR(255),

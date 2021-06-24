@@ -1,0 +1,10 @@
+body {
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+.result {
+  width: 90vw;
+  word-wrap: break-word;
+  grid-column: span 2;
+}
