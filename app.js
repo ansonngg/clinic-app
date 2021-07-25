@@ -113,7 +113,7 @@ app.post('/listCon', (req, res) => {
       if (req.body.from) range += ` AND date >= '${req.body.from}'`;
       if (req.body.to) range += ` AND date <= '${req.body.to}'`;
 
-      sql = `SELECT ADDTIME(*, '08:00:00') FROM record WHERE (email = '${decoded.email}'${range}) LIMIT ${req.body.offset || 0}, ${req.body.limit || 25}`;
+      sql = `SELECT * FROM record WHERE (email = '${decoded.email}'${range}) LIMIT ${req.body.offset || 0}, ${req.body.limit || 25}`;
 
       con2.query(sql, function (err, result) {
         if (err) {
